@@ -1,0 +1,341 @@
+export const orderListData = [
+  {
+    id: "765231",
+    date: "26 March 2020, 12:42 AM",
+    userName: "Mikasa Ackerman",
+    location: "Corner Street 5th London",
+    amount: 164.52,
+    status: "New Order",
+    items: [
+      {
+        id: "1",
+        img: "",
+        name: "MAIN COURSE",
+        text: "Watermelon juice with ice",
+        x: 5,
+        cost: 5.79,
+      },
+    ],
+    deliveryBy: {
+      id: "412455",
+      name: "Kevin Hobs Jr.",
+      phone: "+12 345 5662 66",
+      time: "12.53",
+      img: "",
+    },
+  },
+  {
+    id: "135231",
+    date: "26 March 2020, 12:42 AM",
+    userName: "Eren Ackerman",
+    location: "Corner Street 5th London",
+    amount: 164.52,
+    status: "On Delivery",
+    items: [
+      {
+        id: "2",
+        img: "/turtburchak.png",
+        name: "MAIN COURSE",
+        text: "Watermelon juice with ice",
+        x: 4,
+        cost: 20.1,
+      },
+    ],
+    deliveryBy: {
+      id: "412455",
+      name: "Kevin Hobs Jr.",
+      phone: "+12 345 5662 66",
+      time: "12.53",
+      img: "/",
+    },
+  },
+  {
+    id: "325231",
+    date: "26 March 2020, 12:42 AM",
+    userName: "Mikasa Ackerman",
+    location: "Corner Street 5th London",
+    amount: 164.52,
+    status: "Delivered",
+    items: [
+      {
+        id: "3",
+        img: "/turtburchak.png",
+        name: "MAIN COURSE",
+        text: "Watermelon juice with ice",
+        x: 2,
+        cost: 18,
+      },
+    ],
+    deliveryBy: {
+      id: "412455",
+      name: "Kevin Hobs Jr.",
+      phone: "+12 345 5662 66",
+      time: "12.53",
+      img: "/",
+    },
+  },
+  {
+    id: "555231",
+    date: "26 March 2020, 12:42 AM",
+    userName: "Mikasa Ackerman",
+    location: "Corner Street 5th London",
+    amount: 164.52,
+    status: "New Order",
+    items: [
+      {
+        id: "4",
+        img: "/turtburchak.png",
+        name: "MAIN COURSE",
+        text: "Watermelon juice with ice",
+        x: 1,
+        cost: 5,
+      },
+    ],
+    deliveryBy: {
+      id: "412455",
+      name: "Kevin Hobs Jr.",
+      phone: "+12 345 5662 66",
+      time: "12.53",
+      img: "/",
+    },
+  },
+  {
+    id: "523231",
+    date: "26 March 2020, 12:42 AM",
+    userName: "Mikasa Ackerman",
+    location: "Corner Street 5th London",
+    amount: 164.52,
+    status: "On Delivery",
+    items: [
+      {
+        id: "5",
+        img: "/turtburchak.png",
+        name: "MAIN COURSE",
+        text: "Watermelon juice with ice",
+        x: 9,
+        cost: 20,
+      },
+    ],
+    deliveryBy: {
+      id: "412455",
+      name: "Kevin Hobs Jr.",
+      phone: "+12 345 5662 66",
+      time: "12.53",
+      img: "/",
+    },
+  },
+  {
+    id: "558831",
+    date: "26 March 2020, 12:42 AM",
+    userName: "Mikasa Ackerman",
+    location: "Corner Street 5th London",
+    amount: 164.52,
+    status: "Delivered",
+    items: [
+      {
+        id: "6",
+        img: "/turtburchak.png",
+        name: "MAIN COURSE",
+        text: "Watermelon juice with ice",
+        x: 4,
+        cost: 5.79,
+      },
+    ],
+    deliveryBy: {
+      id: "412455",
+      name: "Kevin Hobs Jr.",
+      phone: "+12 345 5662 66",
+      time: "12.53",
+      img: "",
+    },
+  },
+];
+export const customerData = [
+  {
+    id: "765231",
+    date: "26 March 2020, 12:42 AM",
+    userName: "Mikasa Ackerman",
+    location: "Corner Street 5th London",
+    amount: 164.52,
+    lastAmount: 98,
+    item:[{
+      id:'1',
+      img:'/burchak.png',
+      food:'Meidum Spicy Spagethi Italiano',
+      name:'SPAGETHI',
+      cost:'12.56',
+    }]
+  },
+  {
+    id: "135231",
+    date: "26 March 2020, 12:42 AM",
+    userName: "Mikasa Ackerman",
+    location: "Corner Street 5th London",
+    amount: 164.52,
+    lastAmount: 98,
+    item:[{
+      id:'2',
+      img:'/burchak.png',
+      food:'Meidum Spicy Spagethi Italiano',
+      name:'SPAGETHI',
+      cost:'12.56',
+    }]
+  },
+  {
+    id: "325231",
+    date: "26 March 2020, 12:42 AM",
+    userName: "Mikasa Ackerman",
+    location: "Corner Street 5th London",
+    amount: 164.52,
+    lastAmount: 98,
+    item:[{
+      id:'3',
+      img:'/burchak.png',
+      food:'Meidum Spicy Spagethi Italiano',
+      name:'SPAGETHI',
+      cost:'12.56',
+    }]
+  },
+  {
+    id: "555231",
+    date: "26 March 2020, 12:42 AM",
+    userName: "Mikasa Ackerman",
+    location: "Corner Street 5th London",
+    amount: 164.52,
+    lastAmount: 98,
+    item:[{
+      id:'4',
+      img:'/burchak.png',
+      food:'Meidum Spicy Spagethi Italiano',
+      name:'SPAGETHI',
+      cost:'12.56',
+    }]
+  },
+  {
+    id: "523231",
+    date: "26 March 2020, 12:42 AM",
+    userName: "Mikasa Ackerman",
+    location: "Corner Street 5th London",
+    amount: 164.52,
+    lastAmount: 98,
+    item:[{
+      id:'5',
+      img:'/burchak.png',
+      food:'Meidum Spicy Spagethi Italiano',
+      name:'SPAGETHI',
+      cost:'12.56',
+    }]
+  },
+  {
+    id: "558831",
+    date: "26 March 2020, 12:42 AM",
+    userName: "Mikasa Ackerman",
+    location: "Corner Street 5th London",
+    amount: 164.52,
+    lastAmount: 98,
+    item:[{
+      id:'6',
+      img:'/burchak.png',
+      food:'Meidum Spicy Spagethi Italiano',
+      name:'SPAGETHI',
+      cost:'12.56',
+    }]
+  },
+];
+
+export const foodData = [
+  {
+    id: '1',
+    img: '',
+    name: 'Spicy Mozarella with Barbeque',
+    type: 'food',
+    category: 'noodle',
+    price:'100',
+    ingredients:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    discription:'Lorem ipsum dolor sit amet, consectetur  adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore.',
+    nutritionInfo:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+  },
+  {
+      id: '2',
+      img: '',
+      name: 'Burger Jumbo SpecialWith Spicy',
+      type: 'food',
+      category: 'noodle',
+      price:'100',
+      ingredients:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      discription:'Lorem ipsum dolor sit amet, consectetur  adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore.',
+      nutritionInfo:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+    },
+    {
+      id: '3',
+      img: '',
+      name: 'Pizza la Piazza Special Nuggets',
+      type: 'food',
+      category: 'noodle',
+      price:'100',
+      ingredients:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      discription:'Lorem ipsum dolor sit amet, consectetur  adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore.',
+      nutritionInfo:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+    },
+    {
+      id: '4',
+      img: '',
+      name: 'Spicy Mozarella with Barbeque',
+      type: 'food',
+      category: 'noodle',
+      price:'100',
+      ingredients:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      discription:'Lorem ipsum dolor sit amet, consectetur  adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore.',
+      nutritionInfo:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+    },
+    {
+      id: '5',
+      img: '',
+      name: 'Sprite Flavourwith Avocado Juice',
+      type: 'food',
+      category: 'noodle',
+      price:'100',
+      ingredients:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      discription:'Lorem ipsum dolor sit amet, consectetur  adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore.',
+      nutritionInfo:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+    },
+    {
+      id: '6',
+      img: '',
+      name: 'Spicy Mozarella with Barbeque',
+      type: 'food',
+      category: 'noodle',
+      price:'100',
+      ingredients:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      discription:'Lorem ipsum dolor sit amet, consectetur  adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore.',
+      nutritionInfo:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+    },
+    {
+      id: '7',
+      img: '',
+      name: 'Burger Jumbo SpecialWith Spicy',
+      type: 'food',
+      category: 'noodle',
+      price:'100',
+      ingredients:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      discription:'Lorem ipsum dolor sit amet, consectetur  adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore.',
+      nutritionInfo:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+    },
+    {
+      id: '8',
+      img: '',
+      name: 'Pizza la Piazza Special Nuggets',
+      type: 'food',
+      category: 'noodle',
+      price:'100',
+      ingredients:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      discription:'Lorem ipsum dolor sit amet, consectetur  adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore.',
+      nutritionInfo:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+    },
+];
+ export const icons = [
+  { id: "1", img: "/eye.png", name: "View" },
+  { id: "2", img: "/icon.svg", name: "Edit" },
+  { id: "3", img: "/trash.png", name: "Delete" },
+  { id: "4", img: "/plus.png", name: "Duplicate" },
+];

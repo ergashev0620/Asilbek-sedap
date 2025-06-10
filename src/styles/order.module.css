@@ -1,0 +1,69 @@
+
+.th div {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+.th img {
+  width: 10px;
+  height: 6px;
+}
+.orderTable {
+  width: 100%;
+  font-family: "Barlow", sans-serif;
+  border-collapse: collapse;
+}
+.orderTable thead {
+  background-color: #00b074;
+  color: white;
+}
+.orderTable .tr th {
+  padding: 24px 0;
+}
+.orderTable .tr th:first-child,
+.orderTable .tr td:first-child {
+  padding-left: 70px;
+}
+.orderTable .tr td {
+  padding: 12px 0;
+}
+
+.orderTable .th:nth-child(1) {
+  border-bottom-left-radius: 15px;
+  border-top-left-radius: 15px;
+}
+.orderTable .th:nth-child(6) {
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.onDelivery {
+  width: 150px;
+  height: 50px;
+  background-color: #2d9cdb26;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  color: #2d9cdb;
+}
+.newOrder {
+  width: 150px;
+  height: 50px;
+  background-color: #ff6d4d1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  color: #ff6d4d;
+}
+.delivered {
+  width: 150px;
+  height: 50px;
+  background-color: #00b07426;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  color: #177556;
+}
