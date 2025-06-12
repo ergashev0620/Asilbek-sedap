@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import useCurrentUser from "@/hooks/useCurrentUser";
 import MainLayout from "@/components/common/layouts/MainLayout";
 import useCategory from "@/hooks/useCategories";
-import { Box, Link } from "@mui/material";
+import { Box, Link, Button } from "@mui/material";
 export default function Bucket({}) {
   const [search, setSearch] = useState("");
   const [filteredFoods, setFilteredFoods] = useState([]);
@@ -12,8 +12,10 @@ export default function Bucket({}) {
   const user = useCurrentUser();
   const [categories] = useCategory();
   const [{ foods, isLoading }] = useFoods();
+  const [foodCount, setFoodCount] = useState(0);
   const restaurants = user?.restaurants || [];
   const foundRestaurant = restaurants[0] ?? null;
+
   useEffect(() => {
     const result =
       search.length > 0
@@ -23,6 +25,45 @@ export default function Bucket({}) {
         : foods;
     setFilteredFoods(result);
   }, [search, foods]);
+
+  useEffect(() => {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+    setFoodCount(totalCount);
+  }, []);
+
+  const handlePlusCount = (item) => {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const existing = cart.find((i) => i.id === item.id);
+    if (existing) {
+      existing.quantity += 1;
+    } else {
+      cart.push({ ...item, quantity: 1 });
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    const totalCount = cart.reduce((son, i) => son + i.quantity, 0);
+    setFoodCount(totalCount);
+  };
+
+  const handleMinusCount = (item) => {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const existing = cart.find((i) => i.id === item.id);
+    if (existing) {
+      existing.quantity -= 1;
+      if (existing.quantity <= 0) {
+        const newCart = cart.filter((i) => i.id !== item.id);
+        localStorage.setItem("cart", JSON.stringify(newCart));
+        const totalCount = newCart.reduce((son, i) => son + i.quantity, 0);
+        setFoodCount(totalCount);
+        return;
+      }
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    const totalCount = cart.reduce((sum, i) => sum + i.quantity, 0);
+    setFoodCount(totalCount);
+  };
 
   return (
     <>
@@ -42,9 +83,11 @@ export default function Bucket({}) {
             color: "white",
             border: "none",
             borderRadius: "26px",
+            cursor: "pointer",
           }}
+          onClick={() => router.push("/purchases")}
         >
-          <span>Savatcha |</span>
+          <span>Bucket | {foodCount}</span>
         </button>
         <Box sx={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
           {categories?.categories?.map((cat) => (
@@ -84,13 +127,13 @@ export default function Bucket({}) {
                       key={item?.id}
                       style={{
                         width: "276px",
-                        minHeight: "340px",
                         borderRadius: "14px",
                         backgroundColor: "#fff",
                         boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
                         position: "relative",
                         paddingTop: "100px",
                         textAlign: "center",
+                        margin: "30px 0px",
                       }}
                     >
                       <div
@@ -111,10 +154,10 @@ export default function Bucket({}) {
                         <img
                           width={160}
                           height={160}
-                          src={item?.img}
+                          src={item?.image}
                           alt={item?.name}
                           style={{
-                            objectFit: "contain",
+                            objectFit: "cover",
                           }}
                         />
                       </div>
@@ -143,48 +186,49 @@ export default function Bucket({}) {
                             display: "flex",
                             justifyContent: "space-around",
                             width: "100%",
+                            margin: "20px 0px",
                           }}
                         >
-                          <div style={{ maxWidth: "40px", maxHeight: "40px" }}>
-                            <button
-                              style={{
-                                width: "100%",
-                                height: "100%",
-                                border: "none",
-                              }}
-                            >
-                              <img
-                                style={{
-                                  width: "100%",
-                                  height: "100%",
-                                  overflow: "hidden",
-                                }}
-                                src="/plus.png"
-                                alt="plus"
-                              />
-                            </button>
-                            <span>Plus</span>
-                          </div>
-                          <div style={{ maxWidth: "40px", maxHeight: "40px" }}>
-                            <button
-                              style={{
-                                width: "100%",
-                                height: "100%",
-                                border: "none",
-                              }}
-                            >
-                              <img
-                                style={{
-                                  width: "100%",
-                                  height: "100%",
-                                  overflow: "hidden",
-                                }}
-                                src="/minus.png"
-                                alt="minus"
-                              />
-                            </button>
-                            <span>Minus</span>
-                          </div>
+                          <Button
+                            onClick={() => handlePlusCount(item)}
+                            sx={{
+                              backgroundColor: "white",
+                              borderRadius: "20px",
+                              fontSize: "20px",
+                              minWidth: 50,
+                              backgroundColor: "#00B074",
+                              border: "1px solid #00B074",
+                              color: "white",
+                              minHeight: 30,
+                              "&:hover": {
+                                backgroundColor: "white",
+                                border: "1px solid #00B074",
+                                color: "#00B074",
+                              },
+                            }}
+                          >
+                            +
+                          </Button>
+                          <Button
+                            onClick={() => handleMinusCount(item)}
+                            sx={{
+                              backgroundColor: "white",
+                              borderRadius: "20px",
+                              fontSize: "20px",
+                              minWidth: 50,
+                              minHeight: 30,
+                              backgroundColor: "#FF5B5B",
+                              border: "1px solid #FF5B5B",
+                              color: "white",
+                              "&:hover": {
+                                backgroundColor: "white",
+                                border: "1px solid #FF5B5B",
+                                color: "#FF5B5B",
+                              },
+                            }}
+                          >
+                            -
+                          </Button>
                         </div>
                       </div>
                     </div>
