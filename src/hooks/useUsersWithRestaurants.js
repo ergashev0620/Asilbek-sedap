@@ -8,13 +8,8 @@ export function useUsersWithRestaurants() {
   useEffect(() => {
     async function fetchUsers() {
       try {
-        const res = await axiosInstance.get("/users", {
-          params: {
-            populate: "restaurant",
-          },
-        });
-
-        setUsers(res.data);
+        const res = await axiosInstance.get("/restaurants");
+        setUsers(res.data.data);
       } catch (err) {
         console.error("Error fetching", err);
         setUsers([]);

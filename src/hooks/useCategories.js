@@ -3,16 +3,18 @@ import { axiosInstance } from "@/utils/axiosInstance";
 const ROOT_PATH = "/categories";
 import useCurrentUser from "./useCurrentUser";
 
-export default function useCategory() {
+export default function useCategory(resId = null) {
   const [isLoading, setIsLoading] = useState(true);
   const [categories, setCategories] = useState([]);
   const [error, setError] = useState();
   const user = useCurrentUser();
   useEffect(() => {
-    if (user) {
+    if (user || resId) {
       axiosInstance
         .get(
-          `${ROOT_PATH}?filters[restaurant][documentId][$eq]=${user.restaurantId}&populate=*`
+          `${ROOT_PATH}?filters[restaurant][documentId][$eq]=${
+            resId ? resId : user.restaurantId
+          }&populate=*`
         )
         .then((response) => {
           setCategories(response.data.data);
