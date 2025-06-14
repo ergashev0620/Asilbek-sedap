@@ -7,15 +7,6 @@ import Search from "../Search";
 function MainLayout(props) {
   const router = useRouter();
 
-  // useEffect(() => {
-  //   if (typeof window !== "undefined") {
-  //     const testUser = localStorage.getItem("user");
-  //     if (!testUser) {
-  //       // router.push("/auth/login");
-  //     }
-  //   }
-  // }, [router]);
-
   return (
     <main
       style={{

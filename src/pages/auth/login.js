@@ -1,8 +1,16 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-import {Box,TextField,Button,Typography,Paper,Alert,} from "@mui/material";
+import {
+  Box,
+  TextField,
+  Button,
+  Typography,
+  Paper,
+  Alert,
+} from "@mui/material";
 import Link from "next/link";
 import AuthLayout from "@/components/AuthLayout";
+import useCurrentUser from "@/hooks/useCurrentUser";
 
 export default function LogIn() {
   const [email, setEmail] = useState("");
@@ -28,7 +36,11 @@ export default function LogIn() {
 
         localStorage.setItem("user", JSON.stringify(user));
         localStorage.setItem("jwt", jwt);
-        router.push("/dashboard");
+        if (user.restaurantId) {
+          router.push("/dashboard");
+        } else {
+          router.push("/client");
+        }
       } else {
         setError("qaytadan tekshir");
       }

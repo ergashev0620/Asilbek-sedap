@@ -8,7 +8,7 @@ export default function useCategory() {
   const [categories, setCategories] = useState([]);
   const [error, setError] = useState();
   const user = useCurrentUser();
- useEffect(() => {
+  useEffect(() => {
     if (user) {
       axiosInstance
         .get(
@@ -63,10 +63,10 @@ export default function useCategory() {
 
   const deletyCategory = async (documentId) => {
     axiosInstance
-      .delete(`${ROOT_PATH}/${documentId}`) 
+      .delete(`${ROOT_PATH}/${documentId}`)
       .then((res) => {
         console.log(res, "res");
-        reFetch()
+        reFetch();
       })
       .catch((err) => {
         setError(err);
@@ -76,7 +76,9 @@ export default function useCategory() {
   const reFetch = () => {
     setIsLoading(true);
     axiosInstance
-      .get(`${ROOT_PATH}?filters[restaurant][documentId][$eq]=${user.restaurantId}&populate=*`)
+      .get(
+        `${ROOT_PATH}?filters[restaurant][documentId][$eq]=${user.restaurantId}&populate=*`
+      )
       .then((res) => setCategories(res.data.data))
       .catch((err) => setError(err))
       .finally(() => setIsLoading(false));
@@ -115,7 +117,7 @@ export default function useCategory() {
       isLoading,
       error,
       reFetch,
-      setCategories
+      setCategories,
     },
     {
       getCategory,

@@ -43,7 +43,6 @@ function FoodForm({ title, btnText, food }) {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(name, value, "sdf");
     setFormData((prev) => ({
       ...prev,
       [name]: value,

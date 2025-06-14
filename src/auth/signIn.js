@@ -20,30 +20,31 @@ export default async function signIn(param, data) {
       .catch((error) => {
         // Handle error.
         console.log("An error occurred:", error.response);
-        throw new Error(error)
+        throw new Error(error);
       });
 
     if (data.user) {
       const res = await axiosInstance
-      .get(`/restaurants?filters[users][documentId][$eqi]=${data.user.documentId}`)
-      .then((res) => {
-        return res.data.data[0]
-      })
-      .catch((err) => console.log("err", err));
+        .get(
+          `/restaurants?filters[users][documentId][$eqi]=${data.user.documentId}`
+        )
+        .then((res) => {
+          return res.data.data[0];
+        })
+        .catch((err) => console.log("err", err));
 
       return {
         ...data,
         user: {
           ...data.user,
-          restaurantId: res.documentId
-        }
+          restaurantId: res?.documentId ?? null,
+        },
       };
     }
 
-    throw new Error('User not found')
-
+    throw new Error("User not found");
   } catch (err) {
     console.error("res err: ", err);
-    throw new Error(err)
+    throw new Error(err);
   }
 }

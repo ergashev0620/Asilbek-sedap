@@ -3,7 +3,6 @@ import { axiosInstance } from "@/utils/axiosInstance";
 const ROOT_PATH = "/foods";
 import useCurrentUser from "./useCurrentUser";
 
-
 export default function useFoods() {
   const [isLoading, setIsLoading] = useState(true);
   const [foods, setFoods] = useState([]);
@@ -33,11 +32,11 @@ export default function useFoods() {
       const values = {
         data: {
           name: data.name,
-          price: data.price ? parseInt(data.price, 10):null ,
+          price: data.price ? parseInt(data.price, 10) : null,
           image: data.image,
           comment: data.comment,
           restaurant: user?.restaurantId,
-          type: data.type ?data.type : null,
+          type: data.type ? data.type : null,
         },
       };
       axiosInstance
@@ -97,10 +96,10 @@ export default function useFoods() {
     const values = {
       data: {
         name: data.name,
-        price: data.price ? parseInt(data.price, 10):null ,
+        price: data.price ? parseInt(data.price, 10) : null,
         image: data.image,
         comment: data.comment,
-        type: data.type ?data.type : null,
+        type: data.type ? data.type : null,
       },
     };
     axiosInstance
