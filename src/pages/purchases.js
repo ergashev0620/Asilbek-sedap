@@ -1,17 +1,12 @@
+import Purchases from "@/components/pages/purchases/purchases";
 import React from "react";
-import PurchasesCom from "@/components/pages/purchases/purchases";
-import MainLayout from "@/components/common/layouts/MainLayout";
 
-export default function Purchases() {
+function purchases() {
   return (
-    <>
-      <PurchasesCom />
-    </>
+    <div>
+      <Purchases />
+    </div>
   );
 }
 
-Purchases.getLayout = (pageProps) => (
-  <MainLayout>
-    <Purchases {...pageProps} />
-  </MainLayout>
-);
+export default purchases;

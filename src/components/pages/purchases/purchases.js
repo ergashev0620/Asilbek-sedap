@@ -2,14 +2,26 @@ import { Box, Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { SlBasket } from "react-icons/sl";
 
-export default function Purchases() {
+export default function Purchases(props) {
+  const { foodsByCat } = props;
   const [cart, setCart] = useState([]);
   const [foodCount, setFoodCount] = useState(0);
 
+  // useEffect(() => {
+  //   const saved = JSON.parse(localStorage.getItem("cart")) || [];
+  //   setCart(saved);
+  // }, [foodCount]);
+
   useEffect(() => {
-    const saved = JSON.parse(localStorage.getItem("cart")) || [];
-    setCart(saved);
-  }, []);
+    const loadCart = () => {
+      const saved = JSON.parse(localStorage.getItem("cart")) || [];
+      setCart(saved);
+    };
+
+    loadCart();
+    window.addEventListener("cartUpdated", loadCart);
+    return () => window.removeEventListener("cartUpdated", loadCart);
+  }, [foodsByCat]);
 
   useEffect(() => {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -30,6 +42,7 @@ export default function Purchases() {
     const totalCount = cart.reduce((son, i) => son + i.quantity, 0);
     setFoodCount(totalCount);
     setCart(cart);
+    window.dispatchEvent(new Event("cartUpdated"));
   };
 
   const handleMinusCount = (item) => {
@@ -51,6 +64,7 @@ export default function Purchases() {
     const totalCount = cart.reduce((sum, i) => sum + i.quantity, 0);
     setFoodCount(totalCount);
     setCart(cart);
+    window.dispatchEvent(new Event("cartUpdated"));
   };
 
   return (
@@ -59,7 +73,7 @@ export default function Purchases() {
       {cart.length === 0 ? (
         <p>Savatcha bo‘sh</p>
       ) : (
-        <Box sx={{ width: "100%" }}>
+        <Box sx={{ width: "100%", backgroundColor: "blue" }}>
           {cart.map((item) => (
             <Box
               key={item.id}

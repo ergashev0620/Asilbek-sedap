@@ -16,6 +16,7 @@ export default function useFoods(resId = null) {
   }, [user]);
 
   const fetch = (resId) => {
+    if (!resId) return;
     setIsLoading(true);
     axiosInstance
       .get(

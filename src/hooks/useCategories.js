@@ -96,7 +96,7 @@ export default function useCategory(resId = null) {
       data: {
         name: data.name,
         description: data.description,
-        internalName: `Asliddin_${data.name}`,
+        internalName: `Asilbek_${data.name}`,
         restaurant: data.restaurantId || data?.restaurantId,
       },
     };

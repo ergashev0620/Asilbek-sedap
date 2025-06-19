@@ -6,7 +6,6 @@ import { GoStarFill } from "react-icons/go";
 
 export default function Clint() {
   const { users, loading } = useUsersWithRestaurants();
-  console.log("users", users);
 
   return (
     <>
@@ -34,7 +33,6 @@ export default function Clint() {
   );
 }
 function ResCard({ item }) {
-  console.log("item", item);
   const router = useRouter();
   const handleClick = () => {
     router.push(`/client/res/${item.documentId}`);
