@@ -73,7 +73,7 @@ export default function Purchases(props) {
       {cart.length === 0 ? (
         <p>Savatcha bo‘sh</p>
       ) : (
-        <Box sx={{ width: "100%", backgroundColor: "blue" }}>
+        <Box sx={{ width: "100%" }}>
           {cart.map((item) => (
             <Box
               key={item.id}

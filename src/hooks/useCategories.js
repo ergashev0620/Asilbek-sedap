@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { axiosInstance } from "@/utils/axiosInstance";
-const ROOT_PATH = "/categories";
 import useCurrentUser from "./useCurrentUser";
-
+const ROOT_PATH = "/categories";
 export default function useCategory(resId = null) {
   const [isLoading, setIsLoading] = useState(true);
   const [categories, setCategories] = useState([]);
@@ -26,7 +25,7 @@ export default function useCategory(resId = null) {
           setIsLoading(false);
         });
     }
-  }, [user]);
+  }, [user, resId]);
 
   const createCategory = (data) => {
     if (data) {
@@ -34,7 +33,7 @@ export default function useCategory(resId = null) {
         data: {
           name: data.name,
           description: data.description,
-          internalName: `Asliddin_${data.name}`,
+          internalName: `Asil_${data.name}`,
           restaurant: user?.restaurantId,
         },
       };

@@ -6,18 +6,21 @@ import useCurrentUser from "./useCurrentUser";
 export default function useFoods(resId = null) {
   const [isLoading, setIsLoading] = useState(true);
   const [foods, setFoods] = useState([]);
-  const [error, setError] = useState();
+  const [error, setError] = useState("");
   const user = useCurrentUser();
 
   useEffect(() => {
     if (user || resId) {
       fetch(resId);
     }
-  }, [user]);
+  }, [user, resId]);
 
   const fetch = (resId) => {
-    if (!resId) return;
-    setIsLoading(true);
+    if (!resId) {
+      setIsLoading(false);
+      setError("res id topilmadi");
+      return;
+    }
     axiosInstance
       .get(
         `${ROOT_PATH}?filters[restaurant][documentId][$eq]=${

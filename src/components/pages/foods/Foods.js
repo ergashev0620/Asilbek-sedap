@@ -42,9 +42,9 @@ export default function Foods({}) {
     <>
       <HeaderInput setSearch={setSearch} handleClick={handleClick} />
 
-      {isLoading && foundRestaurant ? (
-        <p style={{ textAlign: "center" }}>Yuklanmoqda...</p>
-      ) : filteredFoods.length > 0 ? (
+      {isLoading && <p style={{ textAlign: "center" }}>Yuklanmoqda...</p>}
+
+      {!isLoading && filteredFoods.length > 0 ? (
         <div
           style={{
             maxWidth: "1460px",

@@ -15,15 +15,14 @@ export default function Bucket() {
   const { curUser } = useCurUser();
   const { users, loading } = useUsersWithRestaurants();
   const [resName, setResName] = useState(null);
-  const [{ categories }] = useCategory(resName);
-  const [{ foods, isLoading }] = useFoods(resName);
+  const catHook = useCategory(resName);
+  const [{ categories }] = catHook;
+  const [{ foods, isLoading, error }] = useFoods(resName);
   const [foodCount, setFoodCount] = useState(0);
-  const restaurants = curUser?.filter((item) => item.restaurant) || [];
-  const foundRestaurant = restaurants[0] ?? null;
-  // const user = useCurrentUser();
-  // console.log("users", users);
-  console.log("user", curUser);
-  // console.log("restaurants", restaurants);
+  // const restaurants = curUser?.filter((item) => item.restaurant) || [];
+  // const foundRestaurant = restaurants[0] ?? null;
+  console.log("router", router.query.name);
+  console.log("resname", resName);
 
   useEffect(() => {
     if (router.isReady && router.query.name) {
@@ -32,12 +31,13 @@ export default function Bucket() {
   }, [router.isReady, router.query.name]);
 
   useEffect(() => {
-    const result =
-      search.length > 0
-        ? foods.filter((item) =>
-            item.name?.toLowerCase().includes(search.toLowerCase())
-          )
-        : foods;
+    let result = foods;
+    if (search.length > 0) {
+      result = foods.filter((item) =>
+        item.name?.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+
     setFilteredFoods(result);
   }, [search, foods]);
 
@@ -98,9 +98,9 @@ export default function Bucket() {
           ))}
         </Box>
       </Box>
-      {foundRestaurant ? (
-        <p style={{ textAlign: "center" }}>Yuklanmoqda...</p>
-      ) : filteredFoods.length > 0 ? (
+      {isLoading && <p style={{ textAlign: "center" }}>Yuklanmoqda...</p>}
+      {error && <p>{error}</p>}
+      {!isLoading && filteredFoods.length > 0 ? (
         <Box sx={{ padding: "20px", display: "flex" }}>
           <Box>
             {categories.map((cat) => {

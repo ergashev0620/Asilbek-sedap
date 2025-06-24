@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useUsersWithRestaurants } from "@/hooks/useUsersWithRestaurants";
 import { useRouter } from "next/router";
 import { GoStarFill } from "react-icons/go";
+import useCategory from "@/hooks/useCategories";
 
 export default function Clint() {
   const { users, loading } = useUsersWithRestaurants();
@@ -36,6 +37,7 @@ function ResCard({ item }) {
   const router = useRouter();
   const handleClick = () => {
     router.push(`/client/res/${item.documentId}`);
+    useCategory(item.documentId);
   };
   return (
     <Box

@@ -9,7 +9,6 @@ export function useCurUser() {
     async function fetchUsers() {
       try {
         const user = await axiosInstance.get("/users");
-        console.log("qweqe", user);
         setCurUsers(user.data);
       } catch (err) {
         console.error("Error fetching", err);

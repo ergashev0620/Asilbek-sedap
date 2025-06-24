@@ -10,7 +10,7 @@ export default function Busket({}) {
   const [filteredFoods, setFilteredFoods] = useState([]);
   const router = useRouter();
   const user = useCurrentUser();
-  const [categories] = useCategory();
+  const [{ categories }] = useCategory();
   const [{ foods, isLoading }] = useFoods();
   const [foodCount, setFoodCount] = useState(0);
   const restaurants = user?.restaurants || [];
